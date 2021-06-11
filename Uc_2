@@ -1,0 +1,61 @@
+import java.io.*;
+
+class A
+{
+	public void createFile()
+	{
+		File myfile = new File("D:\\data\\testcase\\file1.txt");
+		File myfile1 = new File("D:\\data\\testcase");
+		String[] fileList = myfile1.list();
+		
+		for(String str : fileList)
+		{
+			System.out.println(str);
+		}
+		
+		try
+		{
+		
+			if (myfile.exists())
+			{
+				System.out.println("File created:");
+				System.out.println("length of file" + myfile.length());
+			}
+		}
+		
+		catch(Exception e)
+		{
+			System.out.println("Error!! during creating file:");
+		}
+		
+	}
+}
+
+class B
+{
+	public void deleteFile()
+	{
+		File myfile = new File("D:\\data\\testcase\\file1.txt");
+		File dir = new File("myfolder");
+		dir.mkdir();
+
+		if (myfile.delete())
+		{
+			System.out.println("File was deleted");
+		}
+		else
+		{
+			System.out.println("File was not deleted:");
+		}
+	}
+}
+
+public class FileOperation 
+{
+	public static void main(String args[]) 
+	{
+		B b1 = new B();
+		A a1 = new A();
+		b1.deleteFile();
+		a1.createFile();
+	}
