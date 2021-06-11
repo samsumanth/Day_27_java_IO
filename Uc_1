@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class EmployeePayRollData<T>
+{
+	public T id;
+	public T name;
+	public T salary;
+	
+	ArrayList<EmployeePayRollData> employeeData = new ArrayList<EmployeePayRollData>();
+	Scanner userInput = new Scanner(System.in);
+
+	public EmployeePayRollData(T id, T name, T salary)
+	{
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+
+	@Override
+	public String toString() 
+	{
+		return "EmployeePayRollData [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+	}
+
+	public EmployeePayRollData()
+	{
+		
+	}
+	
+	public void readuserData()
+	{
+		System.out.println("Enter employee id:");
+		int id = userInput.nextInt();
+		System.out.println("Enter employee name:");
+		String name = userInput.next();
+		System.out.println("Enter employee salary:");
+		double salary = userInput.nextDouble();
+		employeeData.add(new EmployeePayRollData(id,name,salary));
+	}
+	
+	public void writeuserData()
+	{
+		System.out.println(employeeData);
+	}
+}
+
+public class EmployeePay 
+{
+	public static void main(String[] args) 
+	{
+		EmployeePayRollData emp = new EmployeePayRollData();
+		
+		emp.readuserData();
+		emp.writeuserData();
+	}
+	
+	
+}
+© 2021 GitHub, Inc.
