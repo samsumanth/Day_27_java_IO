@@ -1,0 +1,37 @@
+import java.io.*;
+import java.nio.file.FileStore;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+ 
+public class Watch_Service {
+ 
+    public static void main(String[] args)
+    {
+ 
+        try {
+ 
+            FileSystem filesystem = FileSystems.getDefault();
+ 
+            System.out.println("sucessfully we created system file");
+ 
+            System.out.println("Underlying file stores in the FileSystem :");
+ 
+            for (FileStore store :
+                 filesystem.getFileStores()) {
+                System.out.println(store.toString());
+            }
+ 
+            System.out.println("Root directories of this FileSystem :");
+ 
+            for (Path rootdir :
+                 filesystem.getRootDirectories()) {
+ 
+                System.out.println(rootdir.toString());
+            }
+        }
+        catch (Exception e) {
+          e.printStackTrace();
+        }
+    }
+}
